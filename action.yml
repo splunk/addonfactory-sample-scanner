@@ -5,7 +5,7 @@ inputs:
   path: # id of input
     description: "Path to samples"
     required: true
-    default: -path=$(PWD)/tests/knowledge
+    default: tests/knowledge
 runs:
   using: "docker"
   image: "Dockerfile"

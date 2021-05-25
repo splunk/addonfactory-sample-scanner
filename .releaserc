@@ -13,7 +13,6 @@
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
         ["@semantic-release/exec", {
-            "verifyConditionsCmd": "./verify.sh",
             "prepareCmd": 'sed -i "s/\(splunk\/addonfactory-sample-scanner:\)latest/\1${nextRelease.version}/g" action.yaml'
         }],
         ["@semantic-release/git", {

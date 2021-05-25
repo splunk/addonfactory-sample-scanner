@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-go-earlybird -path=/var/log
+go-earlybird -config=/.go-earlybird -path=/var/log 

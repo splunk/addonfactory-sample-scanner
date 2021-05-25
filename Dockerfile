@@ -1,10 +1,9 @@
 FROM registry.access.redhat.com/ubi8:8.4-199
-USER root
 
 COPY earlybird/binaries/go-earlybird-linux /bin/go-earlybird
-COPY earlybird/.ge_ignore /root/.ge_ignore
-COPY earlybird/config /root/.go-earlybird
-COPY config /root/.go-earlybird
+COPY earlybird/.ge_ignore /.ge_ignore
+COPY earlybird/config /.go-earlybird
+COPY config /.go-earlybird
 
 COPY entrypoint.sh /entrypoint.sh
 

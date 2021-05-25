@@ -2,8 +2,8 @@
 echo "git submodules"
 pushd $GITHUB_ACTION_PATH
 git submodule update --init --recursive
-ls -l
 pushd earlybird
+ls -l
 ./build.sh
 ./install.sh
 popd

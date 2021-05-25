@@ -1,13 +1,14 @@
 # action.yml
 name: "Addon Factory Sample Scanner"
 description: "Detect potentially sensitive data in samples"
-inputs:
-  path: # id of input
-    description: "Path to samples"
-    required: true
-    default: tests/knowledge
 runs:
   using: "docker"
   image: "Dockerfile"
+inputs:
   args:
-    - ${{ inputs.path }}
+    description: Additional arguments to the scanner
+    required: false
+  ScanDir:
+    description: Set the scan directory relative to the project
+    required: false
+    default: tests/knowledge

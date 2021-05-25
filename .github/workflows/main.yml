@@ -20,5 +20,3 @@ jobs:
       - name: sample-scanner
         uses: ./ # Uses an action in the root directory
         id: sample-scanner
-        with:
-          path: "/var/log"

@@ -11,6 +11,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           submodules: recursive
+      - name: build earlybird
+        run: |
+          cd earlybird
+          ./build.sh
+          cd ..
       - name: sample-scanner
         uses: ./ # Uses an action in the root directory
         id: sample-scanner

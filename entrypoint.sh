@@ -1,3 +1,3 @@
-#!/bin/sh -l
+#!/usr/bin/env bash
 
-go-earlybird -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=$(PWD)/$1
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=$(PWD)/$1

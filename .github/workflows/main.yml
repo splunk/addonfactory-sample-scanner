@@ -20,3 +20,5 @@ jobs:
       - name: sample-scanner
         uses: ./ # Uses an action in the root directory
         id: sample-scanner
+        with:
+          Path: $GITHUB_WORKSPACE

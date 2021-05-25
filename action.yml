@@ -10,7 +10,6 @@ inputs:
     required: false
   Path:
     required: false
-    default: $GITHUB_WORKSPACE
   ScanDir:
     description: Set the scan directory relative to the project
     required: false

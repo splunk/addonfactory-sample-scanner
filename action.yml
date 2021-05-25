@@ -4,6 +4,7 @@ description: "Detect potentially sensitive data in samples"
 runs:
   using: "docker"
   image: "Dockerfile"
+  pre-entrypoint: 'setup.sh'  
 inputs:
   args:
     description: Additional arguments to the scanner

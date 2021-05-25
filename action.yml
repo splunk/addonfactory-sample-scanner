@@ -8,6 +8,9 @@ inputs:
   args:
     description: Additional arguments to the scanner
     required: false
+  Path:
+    required: false
+    default: $GITHUB_WORKSPACE
   ScanDir:
     description: Set the scan directory relative to the project
     required: false

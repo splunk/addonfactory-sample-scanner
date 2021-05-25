@@ -2,9 +2,12 @@
 name: "Addon Factory Sample Scanner"
 description: "Detect potentially sensitive data in samples"
 runs:
-  using: "docker"
-  image: "Dockerfile"
-  pre-entrypoint: 'setup.sh'  
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/setup.sh
+      shell: bash
+    - run: go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=${GITHUB_WORKSPACE}/${INPUT_SCANDIR} ${INPUT_ARGS}
+      shell: bash
 inputs:
   args:
     description: Additional arguments to the scanner

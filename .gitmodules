@@ -1,0 +1,3 @@
+[submodule "earlybird"]
+	path = earlybird
+	url = https://github.com/americanexpress/earlybird

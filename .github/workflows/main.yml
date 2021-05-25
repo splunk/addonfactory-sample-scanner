@@ -1,15 +1,16 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  sample_scanner:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Run sample scanner
     steps:
-      - name: Hello world action step
-        id: hello
-        uses: actions/hello-world-docker-action@v1
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: sample-scanner
+        uses: ./ # Uses an action in the root directory
+        id: sample-scanner
         with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          path: "/var/log"

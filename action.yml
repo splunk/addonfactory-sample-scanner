@@ -1,16 +1,13 @@
 # action.yml
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: "Addon Factory Sample Scanner"
+description: "Detect potentially sensitive data in samples"
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  path: # id of input
+    description: "Path to samples"
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    default: -path=$(PWD)/tests/knowledge
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.path }}

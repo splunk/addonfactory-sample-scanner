@@ -1,8 +1,10 @@
-# Container image that runs your code
-FROM alpine:3.10
+FROM registry.access.redhat.com/ubi8:8.4-199
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY earlybird/binaries/go-earlybird-linux /bin/go-earlybird
+COPY earlybird/.ge_ignore /root/.ge_ignore
+COPY earlybird/config /root/.go-earlybird
+COPY config /root/.go-earlybird
+
 COPY entrypoint.sh /entrypoint.sh
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]

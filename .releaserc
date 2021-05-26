@@ -13,7 +13,7 @@
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
         ["@semantic-release/exec", {
-            "prepareCmd": 'yq eval ".runs.image = \"${nextRelease.version}\"" action.yml'
+            "prepareCmd": 'yq -i eval ".runs.image = \"${nextRelease.version}\"" action.yml'
         }],
         ["@semantic-release/git", {
             "assets": ["action.yaml"],

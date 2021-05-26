@@ -25,7 +25,7 @@ inputs:
   args:
     description: Additional arguments to the scanner
     required: false
-  ScanDir:
+  WorkDir:
     description: Set the scan directory relative to the project
     required: false
     default: tests/knowledge

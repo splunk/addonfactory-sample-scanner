@@ -48,6 +48,8 @@ jobs:
           ./build.sh
           cd ..
           pwd
+      - name: Install yq
+        run: snap install yq
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2

@@ -4,6 +4,8 @@ description: "Detect potentially sensitive data in samples"
 runs:
   using: "docker"
   image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:v1.0.7"
+  env:
+    - INPUT_SCANDIR
 inputs:
   args:
     description: Additional arguments to the scanner

@@ -6,5 +6,6 @@ COPY earlybird/config /.go-earlybird
 COPY config /.go-earlybird
 
 COPY entrypoint.sh /entrypoint.sh
+COPY annotate.py /
 
 ENTRYPOINT ["/entrypoint.sh"]

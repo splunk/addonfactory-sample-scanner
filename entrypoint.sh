@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
-if [-d ".go-earlybird" ]; then
+if [ -d ".go-earlybird" ]; then
  cp -f .go-earlybird/* /.go-earlybird/
 fi
 

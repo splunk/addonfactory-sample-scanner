@@ -6,6 +6,7 @@ go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.g
 echo "::endgroup::"
 echo ::group::reviewdog_output
 
+
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore \
     -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \

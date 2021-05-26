@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-set -e
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS}
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
 
@@ -16,6 +15,8 @@ go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.g
       -filter-mode="${INPUT_FILTER_MODE}" \
       -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
       -level="${INPUT_LEVEL}" \
-      ${INPUT_REVIEWDOG_FLAGS}
+      ${INPUT_REVIEWDOG_FLAGS} ; exitCode=$?
 
 echo "::endgroup::"
+
+exit $exitCode

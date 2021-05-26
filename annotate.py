@@ -44,5 +44,7 @@ for hit in data['hits']:
 
 rd['diagnostics']=diagnostics
 
-with open("/dev/stdout", "w") as outfile:
-    json.dump(rd, outfile, indent=4)
+# with open("/dev/stdout", "w") as outfile:
+#     json.dump(rd, outfile, indent=4)
+json_formatted_str = json.dumps(rd, indent=4)
+print(json_formatted_str)

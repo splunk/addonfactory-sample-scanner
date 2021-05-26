@@ -11,7 +11,7 @@ go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.g
     -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \
-      -name="linter-name (addonfactory-sample-scanner)" \
+      -name="addonfactory-sample-scanner" \
       -reporter="${INPUT_REPORTER:-github-check}" \
       -filter-mode="${INPUT_FILTER_MODE}" \
       -fail-on-error="${INPUT_FAIL_ON_ERROR}" \

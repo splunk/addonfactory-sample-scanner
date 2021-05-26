@@ -15,6 +15,9 @@ inputs:
     required: false
     default: tests/knowledge
   ### Flags for reviewdog ###
+  github_token:
+    description: "GITHUB_TOKEN"
+    default: "${{ github.token }}"
   level:
     description: "Report level for reviewdog [info,warning,error]"
     default: "error"

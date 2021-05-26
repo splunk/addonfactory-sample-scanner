@@ -5,7 +5,7 @@ runs:
   using: "docker"
   env:
     - "INPUT_SCANDIR"
-  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:1.0.8"
+  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:v1.0.9"
 inputs:
   args:
     description: Additional arguments to the scanner

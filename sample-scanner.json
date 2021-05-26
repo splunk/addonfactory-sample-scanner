@@ -1,7 +1,7 @@
 {
 	"version": "1.25.0",
 	"skipped": [
-		"/Users/rfaircloth/splunk/github/GitHub/splunk-add-on-for-cisco-asa/tests/knowledge/__pycache__/conftest.cpython-37-pytest-5.4.3.pyc"
+		"/Users/rfaircloth/splunk/github/GitHub/addonfactory-sample-scanner/tests/knowledge/__pycache__/conftest.cpython-37-pytest-5.4.3.pyc"
 	],
 	"ignore": [
 		"*.git/*",
@@ -67,7 +67,7 @@
 	"hits": [
 		{
 			"code": 3014,
-			"filename": "/Users/rfaircloth/splunk/github/GitHub/splunk-add-on-for-cisco-asa/tests/knowledge/pytest-splunk-addon-data.conf",
+			"filename": "/Users/rfaircloth/splunk/github/GitHub/addonfactory-sample-scanner/tests/knowledge/pytest-splunk-addon-data.conf",
 			"caption": "Potential email address in file",
 			"category": "infrastructure",
 			"match_value": "****************",
@@ -86,7 +86,7 @@
 		},
 		{
 			"code": 3015,
-			"filename": "/Users/rfaircloth/splunk/github/GitHub/splunk-add-on-for-cisco-asa/tests/knowledge/pytest-splunk-addon-data.conf",
+			"filename": "/Users/rfaircloth/splunk/github/GitHub/addonfactory-sample-scanner/tests/knowledge/pytest-splunk-addon-data.conf",
 			"caption": "Potential IPv4 Address in file",
 			"category": "infrastructure",
 			"match_value": "************",
@@ -105,7 +105,7 @@
 		},
 		{
 			"code": 3014,
-			"filename": "/Users/rfaircloth/splunk/github/GitHub/splunk-add-on-for-cisco-asa/tests/knowledge/pytest-splunk-addon-data.conf",
+			"filename": "/Users/rfaircloth/splunk/github/GitHub/addonfactory-sample-scanner/tests/knowledge/pytest-splunk-addon-data.conf",
 			"caption": "Potential email address in file",
 			"category": "infrastructure",
 			"match_value": "****************",

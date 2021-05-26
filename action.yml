@@ -3,7 +3,7 @@ name: "Addon Factory Sample Scanner"
 description: "Detect potentially sensitive data in samples"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:v1.0.7"
+  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:1.0.8"
 inputs:
   args:
     description: Additional arguments to the scanner

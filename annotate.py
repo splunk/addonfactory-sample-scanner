@@ -31,33 +31,35 @@ rd['severity']='ERROR'
 
 diagnostics=[]
 
-for hit in data['hits']:
-    diagnostic={}
-    diagnostic['location'] ={
-        'path': hit['filename'].replace(f'{ws}/',''),
-        'range': {
-            'start': {
-                'line': hit['line'],
-                'column': 1
+HITS = 'hits'
+if data and (HITS in data) :
+    for hit in data[HITS]:
+        diagnostic={}
+        diagnostic['location'] ={
+            'path': hit['filename'].replace(f'{ws}/',''),
+            'range': {
+                'start': {
+                    'line': hit['line'],
+                    'column': 1
+                }
             }
         }
-    }
-    diagnostic['severity'] ="ERROR"
-    diagnostic['code'] = {
-        "value": "hit['code']"
-    }
+        diagnostic['severity'] ="ERROR"
+        diagnostic['code'] = {
+            "value": "hit['code']"
+        }
 
-    diagnostic['message'] = f"""{hit['caption']}
-    solution={hit['solution']}
-    category={hit['category']}
-    code={hit['code']}
-    confidence={hit['confidence']}
-    cwe={hit['cwe']}
-    labels={hit['labels']}
-    """
-    diagnostics.append(diagnostic)
+        diagnostic['message'] = f"""{hit['caption']}
+        solution={hit['solution']}
+        category={hit['category']}
+        code={hit['code']}
+        confidence={hit['confidence']}
+        cwe={hit['cwe']}
+        labels={hit['labels']}
+        """
+        diagnostics.append(diagnostic)
 
-rd['diagnostics']=diagnostics
+    rd['diagnostics']=diagnostics
 
-json_formatted_str = json.dumps(rd, indent=4)
-print(json_formatted_str)
+    json_formatted_str = json.dumps(rd, indent=4)
+    print(json_formatted_str)

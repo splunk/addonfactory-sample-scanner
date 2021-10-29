@@ -1,6 +1,8 @@
 import json
 import pprint
 import os
+from collections.abc import Iterable
+
 pp = pprint.PrettyPrinter(indent=4)
 ws = os.environ['GITHUB_WORKSPACE']
 #   ########################################################################
@@ -22,7 +24,6 @@ ws = os.environ['GITHUB_WORKSPACE']
 with open("/dev/stdin") as file:
     # Load its content and make a new dictionary
     data = json.load(file)
-
 
 
 rd = {}

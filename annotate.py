@@ -1,6 +1,8 @@
 import json
 import pprint
 import os
+from collections.abc import Iterable
+
 pp = pprint.PrettyPrinter(indent=4)
 ws = os.environ['GITHUB_WORKSPACE']
 #   ########################################################################
@@ -24,7 +26,6 @@ with open("/dev/stdin") as file:
     data = json.load(file)
 
 
-
 rd = {}
 rd['source']={'name':'addonfactor-sample-scanner','url':'https://github.com/splunk/addonfactory-sample-scanner'}
 rd['severity']='ERROR'
@@ -32,7 +33,7 @@ rd['severity']='ERROR'
 diagnostics=[]
 
 HITS = 'hits'
-if data and (HITS in data) :
+if data and (HITS in data) and data[HITS] and isinstance(data[HITS], Iterable):
     for hit in data[HITS]:
         diagnostic={}
         diagnostic['location'] ={

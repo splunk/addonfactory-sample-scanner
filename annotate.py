@@ -32,7 +32,7 @@ rd['severity']='ERROR'
 diagnostics=[]
 
 HITS = 'hits'
-if data and (HITS in data) :
+if data and (HITS in data) and data[HITS] and isinstance(data[HITS], Iterable):
     for hit in data[HITS]:
         diagnostic={}
         diagnostic['location'] ={

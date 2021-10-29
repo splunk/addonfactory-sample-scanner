@@ -25,15 +25,12 @@ with open("/dev/stdin") as file:
     # Load its content and make a new dictionary
     data = json.load(file)
 
-
 rd = {}
-rd['source']={'name':'addonfactor-sample-scanner','url':'https://github.com/splunk/addonfactory-sample-scanner'}
-rd['severity']='ERROR'
-
-diagnostics=[]
-
 HITS = 'hits'
 if data and (HITS in data) and data[HITS] and isinstance(data[HITS], Iterable):
+    diagnostics=[]
+    rd['source']={'name':'addonfactor-sample-scanner','url':'https://github.com/splunk/addonfactory-sample-scanner'}
+    rd['severity']='ERROR'
     for hit in data[HITS]:
         diagnostic={}
         diagnostic['location'] ={
@@ -62,5 +59,5 @@ if data and (HITS in data) and data[HITS] and isinstance(data[HITS], Iterable):
 
     rd['diagnostics']=diagnostics
 
-    json_formatted_str = json.dumps(rd, indent=4)
-    print(json_formatted_str)
+json_formatted_str = json.dumps(rd, indent=4)
+print(json_formatted_str)

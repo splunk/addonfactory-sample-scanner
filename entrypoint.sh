@@ -15,6 +15,12 @@
 #    limitations under the License.
 #   ######################################################################## export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
+cd earlybird
+./build.sh
+cp binaries/go-earlybird-linux /bin/go-earlybird
+cd ..
+pwd
+
 if [ -d ".go-earlybird" ]; then
  cp -f .go-earlybird/* /.go-earlybird/
 fi

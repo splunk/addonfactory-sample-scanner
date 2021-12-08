@@ -26,7 +26,7 @@ cp earlybird/.ge_ignore .
 cp -r earlybird/config .go-earlybird
 
 if [ -d ".go-earlybird" ]; then
- cp -f .go-earlybird/* /.go-earlybird/
+ cp -f -r .go-earlybird/* /.go-earlybird/
 fi
 
 echo ::group::scanner_output

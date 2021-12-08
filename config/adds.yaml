@@ -1,0 +1,6 @@
+rules:
+- Codes:
+  - 3013
+  Pattern: ".*"
+  FileExtensions: []
+  Description: Ignore a false positive phone number

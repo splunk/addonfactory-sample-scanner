@@ -31,6 +31,14 @@
             "Pattern": "github.com",
             "FileExtensions": [],
             "Description": "ignore splunk sales email"
+        },
+        {
+            "Codes": [
+                3019
+            ],
+            "Pattern": "s3://some_aws_s3_backet_name/fdrv2/aidmaster/7999f4ee-538e-43df-fake-a4bf5aff1d37/part-00000.gz",
+            "FileExtensions": [],
+            "Description": "test ignore"
         }
     ]
 }

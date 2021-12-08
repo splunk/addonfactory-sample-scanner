@@ -32,6 +32,11 @@ fi
 ls -la /.go-earlybird/
 cat /.go-earlybird/false-positives.json
 
+cp /.go-earlybird/adds.yaml /.go-earlybird/falsepositives
+ls -la /.go-earlybird/falsepositives
+
+cat /.go-earlybird/falsepositives/adds.yaml
+
 echo ::group::scanner_output
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"

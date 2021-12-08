@@ -30,6 +30,7 @@ if [ -d ".go-earlybird" ]; then
 fi
 
 ls -la /.go-earlybird/
+cat /.go-earlybird/false-positives.json
 
 echo ::group::scanner_output
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true

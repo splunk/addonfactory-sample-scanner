@@ -15,6 +15,7 @@
 #    limitations under the License.
 #   ######################################################################## export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
+git clone https://github.com/americanexpress/earlybird.git
 cd earlybird
 ./build.sh
 cp binaries/go-earlybird-linux /bin/go-earlybird

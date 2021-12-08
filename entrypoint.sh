@@ -29,6 +29,8 @@ if [ -d ".go-earlybird" ]; then
  cp -f -r .go-earlybird/* /.go-earlybird/
 fi
 
+ls -la /.go-earlybird/
+
 echo ::group::scanner_output
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"

@@ -23,7 +23,7 @@ cd ..
 pwd
 
 cp earlybird/.ge_ignore /
-cp earlybird/config /.go-earlybird
+cp -r earlybird/config /.go-earlybird
 
 if [ -d ".go-earlybird" ]; then
  cp -f .go-earlybird/* /.go-earlybird/

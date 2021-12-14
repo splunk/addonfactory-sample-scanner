@@ -54,7 +54,9 @@ else
     export REPORTER=$INPUT_REPORTER
 fi
 
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore \
+cat /github/workspace/${INPUT_WORKDIR}/.ge_ignore_file
+
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile=/github/workspace/${INPUT_WORKDIR}/.ge_ignore_file \
     -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \

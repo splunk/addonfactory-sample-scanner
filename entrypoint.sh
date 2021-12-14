@@ -37,8 +37,10 @@ ls -la /.go-earlybird/falsepositives
 
 cat /.go-earlybird/falsepositives/adds.yaml
 
+cat /github/workspace/${INPUT_WORKDIR}/.ge_ignore_file
+
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile=/github/workspace/${INPUT_WORKDIR}/.ge_ignore_file -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
 
@@ -54,9 +56,7 @@ else
     export REPORTER=$INPUT_REPORTER
 fi
 
-cat /github/workspace/${INPUT_WORKDIR}/.ge_ignore_file
-
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile=/github/workspace/${INPUT_WORKDIR}/.ge_ignore_file \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore \
     -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \

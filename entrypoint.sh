@@ -77,4 +77,5 @@ go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.g
 
 echo "::endgroup::"
 
+echo $exitCode
 exit $exitCode

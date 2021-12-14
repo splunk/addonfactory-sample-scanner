@@ -37,6 +37,11 @@ ls -la /.go-earlybird/falsepositives
 
 cat /.go-earlybird/falsepositives/adds.yaml
 
+if [ -f "/github/workspace/false-positives.yaml" ]; then
+ cp /github/workspace/false-positives.yaml /.go-earlybird/falsepositives
+ cat /.go-earlybird/falsepositives/false-positives.yaml
+fi
+
 cat /github/workspace/.ge_ignore_file
 
 echo ::group::scanner_output

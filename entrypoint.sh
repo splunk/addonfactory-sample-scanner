@@ -38,8 +38,8 @@ ls -la /.go-earlybird/falsepositives
 cat /.go-earlybird/falsepositives/adds.yaml
 
 WORKSPACE_DIR=/github/workspace
-if [ -f "{WORKSPACE_DIR}/false-positives.yaml" ]; then
- cp "{WORKSPACE_DIR}/false-positives.yaml" /.go-earlybird/falsepositives
+if [ -f "${WORKSPACE_DIR}/false-positives.yaml" ]; then
+ cp "${WORKSPACE_DIR}/false-positives.yaml" /.go-earlybird/falsepositives
  cat /.go-earlybird/falsepositives/false-positives.yaml
 fi
 
@@ -47,7 +47,7 @@ fi
 cat /github/workspace/.ge_ignore_file
 
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="{WORKSPACE_DIR}/.ge_ignore_file" \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore_file" \
     -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output

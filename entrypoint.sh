@@ -49,7 +49,7 @@ cat /github/workspace/.ge_ignore
 
 echo ::group::scanner_output
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
-    -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
+    -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
 
@@ -67,7 +67,7 @@ fi
 
 # go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore_file" \
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
-    -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
+    -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \
       -name="addonfactory-sample-scanner" \

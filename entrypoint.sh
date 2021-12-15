@@ -22,7 +22,7 @@ cp binaries/go-earlybird-linux /bin/go-earlybird
 cd ..
 pwd
 
-cp earlybird/.ge_ignore .
+#cp earlybird/.ge_ignore .
 cp -r earlybird/config .go-earlybird
 
 if [ -d ".go-earlybird" ]; then

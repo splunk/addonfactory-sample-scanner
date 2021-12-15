@@ -38,16 +38,16 @@ ls -la /.go-earlybird/falsepositives
 cat /.go-earlybird/falsepositives/adds.yaml
 
 WORKSPACE_DIR=/github/workspace
-if [ -f "${WORKSPACE_DIR}/false-positives.yaml" ]; then
- cp "${WORKSPACE_DIR}/false-positives.yaml" /.go-earlybird/falsepositives
- cat /.go-earlybird/falsepositives/false-positives.yaml
+if [ -f "${WORKSPACE_DIR}/.false-positives.yaml" ]; then
+ cp "${WORKSPACE_DIR}/.false-positives.yaml" /.go-earlybird/falsepositives
+ cat /.go-earlybird/falsepositives/.false-positives.yaml
 fi
 
 
-cat /github/workspace/.ge_ignore_file
+cat /github/workspace/.ge_ignore
 
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore_file" \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore" \
     -path=/github/workspace/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
@@ -65,7 +65,7 @@ else
 fi
 
 # go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore_file" \
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/  -ignorefile=/.ge_ignore -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore_file" \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile=/.ge_ignore -ignorefile=/.ge_ignore -ignorefile="${WORKSPACE_DIR}/.ge_ignore" \
     -path=/github/workspace/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \

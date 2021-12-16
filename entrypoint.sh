@@ -20,11 +20,12 @@ FALSE_POSITIVE_FILE="${WORKSPACE_DIR}/.false-positives.yaml"
 IGNORE_FILE="${WORKSPACE_DIR}/.ge_ignore"
 
 if [ -d ".go-earlybird" ]; then
- cp -f .go-earlybird/* /.go-earlybird/
+    cp -f .go-earlybird/* /.go-earlybird/
 fi
 
 if [ -f "${FALSE_POSITIVE_FILE}" ]; then
- cp "${FALSE_POSITIVE_FILE}" /.go-earlybird/falsepositives
+    echo "Adding exceptions from file: ${FALSE_POSITIVE_FILE}"
+    cp "${FALSE_POSITIVE_FILE}" /.go-earlybird/falsepositives
 fi
 
 

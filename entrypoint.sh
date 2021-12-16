@@ -17,19 +17,25 @@
 
 WORKSPACE_DIR=/github/workspace
 FALSE_POSITIVE_FILE="${WORKSPACE_DIR}/.false-positives.yaml"
-IGNORE_FILE="${WORKSPACE_DIR}/.ge_ignore"
+CUSTOM_IGNORE_FILE="${WORKSPACE_DIR}/.ge_ignore"
+IGNORE_FILE="/.ge_ignore"
 
 if [ -d ".go-earlybird" ]; then
- cp -f .go-earlybird/* /.go-earlybird/
+    cp -f .go-earlybird/* /.go-earlybird/
 fi
 
 if [ -f "${FALSE_POSITIVE_FILE}" ]; then
- cp "${FALSE_POSITIVE_FILE}" /.go-earlybird/falsepositives
+    echo "Adding exceptions from ${FALSE_POSITIVE_FILE} file"
+    cp "${FALSE_POSITIVE_FILE}" /.go-earlybird/falsepositives
 fi
 
+if [ -f "${CUSTOM_IGNORE_FILE}" ]; then
+    echo "Adding files from custom ignorefile to ${IGNORE_FILE}"
+    cat "${CUSTOM_IGNORE_FILE}" >> "${IGNORE_FILE}"
+fi
 
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
@@ -46,7 +52,7 @@ else
     export REPORTER=$INPUT_REPORTER
 fi
 
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \

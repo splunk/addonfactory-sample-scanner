@@ -16,8 +16,9 @@
 #   ######################################################################## export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 
 git clone https://github.com/americanexpress/earlybird.git
-git checkout 4f365f1c02
+
 cd earlybird
+git checkout 4f365f1c02
 ./build.sh
 cp binaries/go-earlybird-linux /bin/go-earlybird
 cd ..

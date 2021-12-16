@@ -28,9 +28,11 @@ if [ -f "${FALSE_POSITIVE_FILE}" ]; then
     cp "${FALSE_POSITIVE_FILE}" /.go-earlybird/falsepositives
 fi
 
+echo "ignore file"
+cat "${IGNORE_FILE}"
 
 echo ::group::scanner_output
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ --ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} ${INPUT_ARGS} || true
 echo "::endgroup::"
 echo ::group::reviewdog_output
@@ -47,7 +49,7 @@ else
     export REPORTER=$INPUT_REPORTER
 fi
 
-go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
+go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ --ignorefile="${IGNORE_FILE}" -ignorefile=/.ge_ignore \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \
     | reviewdog -f=rdjson  \

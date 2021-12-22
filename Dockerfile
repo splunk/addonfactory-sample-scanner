@@ -21,7 +21,7 @@ RUN wget -O - -q https://raw.githubusercontent.com/reviewdog/reviewdog/master/in
 
 COPY earlybird/binaries/go-earlybird-linux /bin/go-earlybird
 COPY earlybird/.ge_ignore /
-COPY earlybird/config /.go-earlybird
+COPY earlybird/config/false-positives.json /.go-earlybird/falsepositives
 COPY config /.go-earlybird
 
 COPY entrypoint.sh /entrypoint.sh

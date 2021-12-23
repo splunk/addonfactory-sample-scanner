@@ -1,0 +1,21 @@
+rules:
+  - Codes:
+    - 3014
+    Pattern: "splunk.com"
+    FileExtensions: []
+    Description: "ignore splunk sales email"
+  - Codes:
+    - 3014
+    Pattern: "github.com"
+    FileExtensions: []
+    Description: "ignore splunk sales email"
+  - Codes:
+    - 3019
+    Pattern: "splunk.com"
+    FileExtensions: []
+    Description: "ignore splunk sales email"
+  - Codes:
+    - 3019
+    Pattern: "github.com"
+    FileExtensions: []
+    Description: "ignore splunk sales email"

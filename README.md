@@ -16,6 +16,14 @@ id: sample-scanner
 
 The action will check tests/knowledge/* for potentialy identifying data and update the build or pr with annotations identifying violations.
 
+# False positive detection
+
+`.false-positives.yaml` file can be defined in Add-on repository to exclude false positives from the results. Use syntax from [official earlybird documentation](https://github.com/americanexpress/earlybird/blob/main/docs/FALSEPOSITIVES.md)
+
+# Ignoring files
+
+To exclude files from sample-scanner check define `.ge_ignore` file in Add-on repository. File patterns with `*` re supported for this file. [earlybird documentation](https://github.com/americanexpress/earlybird/blob/main/docs/IGNORE.md)
+
 # License
 
 The scripts and documentation in this project are released under the [Apache 2.0 License](LICENSE)

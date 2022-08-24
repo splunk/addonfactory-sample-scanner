@@ -41,16 +41,20 @@ echo "::endgroup::"
 echo ::group::reviewdog_output
 
 echo "event name: $GITHUB_EVENT_NAME"
+echo "INPUT REPORTER: $INPUT_REPORTER"
 
 if [ -z ${INPUT_REPORTER+x} ];
 then
     if [ $GITHUB_EVENT_NAME = "schedule" ]
     then
+        echo "local"
         export REPORTER=local
     elif [ -z ${GITHUB_BASE_REF+x} ];
     then
+        echo "github-pr-review"
         export REPORTER=github-pr-review
     else
+        echo "github-check"
         export REPORTER=github-check
     fi
 else
@@ -58,6 +62,9 @@ else
 fi
 
 echo "reporter: $REPORTER"
+export REPORTER=local
+echo "reporter: $REPORTER"
+
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \

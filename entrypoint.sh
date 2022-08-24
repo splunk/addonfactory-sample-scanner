@@ -57,16 +57,17 @@ else
     export REPORTER=$INPUT_REPORTER
 fi
 
+echo "reporter: $REPORTER"
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
-    | python3 /annotate.py ; exitCode=$?
-#    | reviewdog -f=rdjson  \
-#      -name="addonfactory-sample-scanner" \
-#      -reporter="${REPORTER:-github-check}" \
-#      -filter-mode="${INPUT_FILTER_MODE}" \
-#      -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
-#      -level="${INPUT_LEVEL}" \
-#      ${INPUT_REVIEWDOG_FLAGS} ; exitCode=$?
+    | python3 /annotate.py \
+    | reviewdog -f=rdjson  \
+      -name="addonfactory-sample-scanner" \
+      -reporter="${REPORTER:-github-check}" \
+      -filter-mode="${INPUT_FILTER_MODE}" \
+      -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
+      -level="${INPUT_LEVEL}" \
+      ${INPUT_REVIEWDOG_FLAGS} ; exitCode=$?
 
 echo "::endgroup::"
 

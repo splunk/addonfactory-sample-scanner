@@ -47,7 +47,7 @@ then
     if [ $GITHUB_EVENT_NAME = "schedule" ]
     then
         export REPORTER=local
-    elif[ -z ${GITHUB_BASE_REF+x} ];
+    elif [ -z ${GITHUB_BASE_REF+x} ];
     then
         export REPORTER=github-pr-review
     else

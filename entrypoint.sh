@@ -40,9 +40,14 @@ go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${I
 echo "::endgroup::"
 echo ::group::reviewdog_output
 
+echo "event name: $GITHUB_EVENT_NAME"
+
 if [ -z ${INPUT_REPORTER+x} ];
 then
-    if [ -z ${GITHUB_BASE_REF+x} ];
+    if [ $GITHUB_EVENT_NAME = "schedule" ]
+    then
+        export REPORTER=local
+    elif[ -z ${GITHUB_BASE_REF+x} ];
     then
         export REPORTER=github-pr-review
     else

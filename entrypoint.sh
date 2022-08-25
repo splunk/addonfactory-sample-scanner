@@ -92,7 +92,7 @@ else
 fi
 
 echo "reporter: $REPORTER"
-export REPORTER=local
+export REPORTER="github-check"
 echo "reporter: $REPORTER"
 
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \

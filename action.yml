@@ -20,7 +20,7 @@ runs:
   using: "docker"
   env:
     INPUT_SCANDIR: "${{ inputs.ScanDir }}"
-  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:v1.3.3-develop.7"
+  image: "docker://ghcr.io/splunk/addonfactory-sample-scanner:v1.3.3-develop.8"
 inputs:
   args:
     description: Additional arguments to the scanner

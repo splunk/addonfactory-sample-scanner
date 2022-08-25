@@ -92,7 +92,7 @@ else
 fi
 
 echo "reporter: $REPORTER"
-export REPORTER="github-check"
+export REPORTER="local"
 echo "reporter: $REPORTER"
 
 echo "reporter: $INPUT_FILTER_MODE"

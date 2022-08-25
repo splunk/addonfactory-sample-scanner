@@ -95,6 +95,10 @@ echo "reporter: $REPORTER"
 export REPORTER="github-check"
 echo "reporter: $REPORTER"
 
+echo "reporter: $INPUT_FILTER_MODE"
+export INPUT_FILTER_MODE="nofilter"
+echo "reporter: $INPUT_FILTER_MODE"
+
 go-earlybird  -show-solutions -suppress -config=/.go-earlybird/ -ignorefile="${IGNORE_FILE}" \
     -path=${WORKSPACE_DIR}/${INPUT_WORKDIR} -format=json ${INPUT_ARGS} \
     | python3 /annotate.py \

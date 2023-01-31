@@ -78,6 +78,6 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
       - name: Semantic Release
-        uses: splunk/semantic-release-action@v1.3
+        uses: splunk/semantic-release-action@v1.2
         env:
           GITHUB_TOKEN: ${{ secrets.GHCR_PAT }}
